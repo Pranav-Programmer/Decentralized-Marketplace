@@ -2,8 +2,8 @@ import Config
 
 config :backend_elixir, BackendElixir.Repo,
   database: "marketplace_dev",
-  username: "postgres",
-  password: "postgres",
+  username: "Admin",
+  password: "Pranav@2001",
   hostname: "localhost"
 
 config :backend_elixir, ecto_repos: [BackendElixir.Repo]
