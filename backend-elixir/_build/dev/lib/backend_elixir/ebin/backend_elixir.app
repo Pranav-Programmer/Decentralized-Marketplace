@@ -1,5 +1,6 @@
 {application,backend_elixir,
              [{modules,['Elixir.BackendElixir.Application',
+                        'Elixir.BackendElixir.CORSPlug',
                         'Elixir.BackendElixir.Dispatcher',
                         'Elixir.BackendElixir.Job',
                         'Elixir.BackendElixir.JobStore',

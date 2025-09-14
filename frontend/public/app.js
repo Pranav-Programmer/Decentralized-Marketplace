@@ -1,24 +1,39 @@
 // frontend/public/app.js
-
-// Use the global `ethers` provided by the UMD script we included in index.html
+// Uses window.ethers (UMD) loaded in index.html
 const ethersLib = window.ethers;
+if (!ethersLib) console.error("ethers not found on window — check index.html includes the UMD script");
 
-if (!ethersLib) {
-  console.error("ethers not found on window — check that the UMD script was loaded");
+async function loadAbi() {
+  const res = await fetch('/SimpleEscrow.json');
+  if (!res.ok) throw new Error('Failed to load ABI: ' + res.status);
+  return await res.json(); // returns the ABI array
 }
 
-// Paste your contract address and ABI (or update later)
-const CONTRACT_ADDRESS = "<PUT_CONTRACT_ADDRESS_HERE>";
-const CONTRACT_ABI = []; // paste the ABI JSON array here (from Hardhat artifacts)
+async function loadAddress() {
+  try {
+    const res = await fetch('/contract-address.json');
+    if (!res.ok) throw new Error('No contract-address.json found');
+    const j = await res.json();
+    return j.address;
+  } catch (err) {
+    console.warn('contract-address.json not found, falling back to hard-coded address if provided');
+    // fallback: return hard-coded address or null
+    return "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  }
+}
 
-// helper connect function
 async function connect() {
   if (!window.ethereum) return alert("Install MetaMask or enable an injected provider");
-  // Ethers v6: BrowserProvider wraps window.ethereum
+
+  // load ABI + address first
+  const [abi, address] = await Promise.all([loadAbi(), loadAddress()]);
+
+  // Ethers v6 BrowserProvider
   const provider = new ethersLib.BrowserProvider(window.ethereum);
   await window.ethereum.request({ method: 'eth_requestAccounts' });
   const signer = await provider.getSigner();
-  const contract = new ethersLib.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+  const contract = new ethersLib.Contract(address, abi, signer);
+
   return { provider, signer, contract, ethers: ethersLib };
 }
 
@@ -26,6 +41,7 @@ window.app = {
   async connectAndFund(){
     const { signer } = await connect();
     const clientAddr = await signer.getAddress();
+
     // create job on backend
     const resp = await fetch("http://localhost:4000/jobs", {
       method: "POST", headers: {"Content-Type":"application/json"},
@@ -34,8 +50,8 @@ window.app = {
     const data = await resp.json();
     const jobId = data.job_id;
     alert("Job created: " + jobId + ". Now fund via MetaMask or the chain-service.");
-    // Compute jobIdHex client-side if you need to call contract from frontend
-    // Use keccak256: ethers.utils.id(jobId) -> returns bytes32 hex
+
+    // Compute jobIdHex client-side (keccak256)
     const jobIdHex = ethersLib.id(jobId);
     console.log("jobIdHex", jobIdHex);
   }
