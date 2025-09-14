@@ -21,6 +21,23 @@ defmodule BackendElixir.JobStore do
     Repo.all(from j in Job, where: j.status == "open")
   end
 
+  def list_active_jobs do
+  import Ecto.Query, warn: false
+  alias BackendElixir.Repo
+  alias BackendElixir.Job
+
+  # Return all jobs that are not released/finalized.
+  Repo.all(from j in Job, where: j.status != "released", order_by: [desc: j.inserted_at])
+end
+
+
+  def update_client(id, client_addr) do
+  job = get_job(id)
+  job
+  |> Job.changeset(%{client_addr: client_addr})
+  |> Repo.update()
+  end
+
   def get_job(id), do: Repo.get(Job, id)
 
   def mark_claimed(id, worker_addr, txns) do

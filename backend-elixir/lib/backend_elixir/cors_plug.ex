@@ -1,5 +1,10 @@
+# backend-elixir/lib/backend_elixir/cors_plug.ex
 defmodule BackendElixir.CORSPlug do
-  @moduledoc "Tiny dev-only CORS plug: handles OPTIONS preflight and adds headers."
+  @moduledoc """
+  Robust dev CORS plug:
+  - Answers OPTIONS preflight (204)
+  - Ensures Access-Control-Allow-Origin header is present on every response (via register_before_send)
+  """
 
   import Plug.Conn
 
@@ -7,7 +12,6 @@ defmodule BackendElixir.CORSPlug do
 
   def init(opts), do: opts
 
-  # Handle preflight OPTIONS
   def call(%Plug.Conn{method: "OPTIONS"} = conn, _opts) do
     conn
     |> put_resp_header("access-control-allow-origin", @allowed_origin)
@@ -17,11 +21,13 @@ defmodule BackendElixir.CORSPlug do
     |> send_resp(204, "")
   end
 
-  # For normal requests, just add the Allow-Origin header (and others if desired)
   def call(conn, _opts) do
-    conn
-    |> put_resp_header("access-control-allow-origin", @allowed_origin)
-    |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
-    |> put_resp_header("access-control-allow-headers", "content-type,authorization")
+    # ensure headers are present on eventual response
+    register_before_send(conn, fn conn ->
+      conn
+      |> put_resp_header("access-control-allow-origin", @allowed_origin)
+      |> put_resp_header("access-control-allow-methods", "GET,POST,PUT,DELETE,OPTIONS")
+      |> put_resp_header("access-control-allow-headers", "content-type,authorization")
+    end)
   end
 end

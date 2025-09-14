@@ -1,0 +1,206 @@
+{
+  "0x3afbf1de8249396c90ac3df77efec9bca448f7a24044131b84c923f47b0114e4": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": null,
+    "released": false,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      }
+    ]
+  },
+  "0xd1ac80722ddbaac029a2105e1991ad7900d6539981b97c317e105413941f23f8": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": null,
+    "released": false,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      }
+    ]
+  },
+  "0x5b39f6c9b93ba2eb9b585143a66b8aea18e24f7bcb5bd83eb53c6ce6a67e676c": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": null,
+    "released": false,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      }
+    ]
+  },
+  "0x7c963853e48b755a854ff7a144b8b324fafbefb92c1daad086e1fa14f44d9ae7": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": null,
+    "released": false,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      }
+    ]
+  },
+  "0xa438707e9e1a21db8de835035a63aca73883c888793306581d3668c593bddeed": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": "0x6ff5ce0280383c5b428333fe169532fd6148d7561eba1e2de6a64bbb5f6159f3",
+    "released": true,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "release"
+      }
+    ]
+  },
+  "0x0f3c7c2f25eeb6ba2bbef2734fae4e2d36e23f3455a4e7017b5b8109af5c1e71": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": "0x3498505b52a96690e3124cc8f8a6c9bff81ce1fc9c7e337ceef4aabdbedc3f07",
+    "released": true,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "release"
+      }
+    ]
+  },
+  "0x75b6726d9929cec88a898e090f33956335d004d9dc5fbd1fb91e35e91f1b1a59": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": "0x5f94bc2635492ea8f9c8377081508b82d2776f38cf5f011ad9a795d4bf7df6ac",
+    "released": true,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "release"
+      }
+    ]
+  },
+  "0x2b59db5044e9a280e3c7255913b6a73bd4db5eebb8ba3ac30388625b46c3281a": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": "0xb940ee31daf5d56221051ee0e55509bda352083645549f4338393f01a4eb748c",
+    "released": true,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "release"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      }
+    ]
+  },
+  "0x7d5ad54537451b1e8c81ef718c51133646e1c052d41f909e200988f7a679b3c3": {
+    "client": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "funded": true,
+    "resultHash": "0xc7226c0cc4b19f707b55e2500e26483c036ac31339962bad33e5478453fb480a",
+    "released": true,
+    "lastTxs": [
+      {
+        "action": "fund"
+      },
+      {
+        "action": "claim"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "submitResult"
+      },
+      {
+        "action": "release"
+      }
+    ]
+  }
+}
